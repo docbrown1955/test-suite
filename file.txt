@@ -1,0 +1,9 @@
+2 wilsons:
+(0) : Operator : 
+O = gamma_{+%\tau_53528,%alpha_18426,%beta_22170}*gamma_{%\tau_53528,%eps_122253,%eta_95509}*b_{%F_191,%eta_95509}(p_1)*s_{%F_191,%eps_122253}(p_2)^(*)*mu_%alpha_18426(p_3)^(*)*mu_%beta_22170(p_4)
+C = 1
+
+(1) : Operator : 
+O = gamma_{+%\tau_53528,%alpha_18426,%beta_22170}*gamma_{%\tau_53528,%eps_122253,%eps_122254}*gamma5_{%eps_122254,%eta_95509}*b_{%F_191,%eta_95509}(p_1)*s_{%F_191,%eps_122253}(p_2)^(*)*mu_%alpha_18426(p_3)^(*)*mu_%beta_22170(p_4)
+C = -1
+
