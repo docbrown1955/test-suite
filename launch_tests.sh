@@ -44,14 +44,15 @@ make -j 8 $flags_make all
 ./test_procedure.sh bin/C8_SM.x             15
 ./test_procedure.sh bin/sampleC9.x          50
 ./test_procedure.sh bin/BsMixingSM.x        20
-./test_procedure.sh bin/C8_PMSSM.x          60
-./test_procedure.sh bin/C7_PMSSM.x          70
+./test_procedure.sh bin/testGTHDM.x         30
+./test_procedure.sh bin/C8_PMSSM.x          75
+./test_procedure.sh bin/C7_PMSSM.x          90
 ./test_procedure.sh bin/gm2PMSSM.x          80
-./test_procedure.sh bin/sampleC9MSSM.x      600
+./test_procedure.sh bin/sampleC9MSSM.x      350
 
 ### Termination tests
 ./test_procedure.sh bin/Bgenesis.x          9
-./test_procedure.sh bin/SM_2IDM.x           10
+./test_procedure.sh bin/SM_2IDM.x           15
 ./test_procedure.sh bin/NLepto.x            25
 ./test_procedure.sh bin/SM_triplet.x        150
 
