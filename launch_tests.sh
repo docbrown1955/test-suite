@@ -56,3 +56,5 @@ make -j 8 $flags_make all
 ./test_procedure.sh bin/NLepto.x            25
 ./test_procedure.sh bin/SM_triplet.x        150
 
+### ~30min long VLQ calculations
+cd testlibraries/vectorlike; ../../test_procedure.sh B0_mixing_VLQ.sh 2400

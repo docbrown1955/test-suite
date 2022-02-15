@@ -11,6 +11,13 @@
 !models/files/
 !models/files/SM.json
 !libscripts/
+!testlibraries
+!testlibraries/*
+!testlibraries/vectorlike
+!testlibraries/vectorlike/*
+!testlibraries/vectorlike/models
+!testlibraries/vectorlike/models/*
+testlibraries/vectorlike/testlib
 !C9_MSSM/
 !C9_MSSM/newdatafull_explicitspectrum
 !C9_MSSM/newdatafull_explicitspectrum/spectra
