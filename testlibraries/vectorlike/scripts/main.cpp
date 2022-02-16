@@ -103,12 +103,12 @@ int main() {
 
     vl::VectorLike_Model::Model model_params;
     model_params.model5  = 0;
-    model_params.model6  = 1;
+    model_params.model6  = 0;
     model_params.model7  = 0;
     model_params.model8  = 0;
     model_params.model9  = 0;
-    model_params.model10 = 0;
-    model_params.model11 = 0;
+    model_params.model10 = 1;
+    model_params.model11 = 1;
     auto masses = vl::VectorLike_Model::getVLQMasses(model_params);
     vl::VectorLike_Model model(model_params);
     std::cout << model << '\n';

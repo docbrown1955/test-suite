@@ -32,6 +32,7 @@ fi
 #cd ../tests/systemTests
 make -j 8 $flags_make all
 
+
 ./test_procedure.sh bin/FItests.x           1
 ./test_procedure.sh bin/testZmumu.x         5 
 ./test_procedure.sh bin/reinterpretation.x  10
@@ -57,4 +58,4 @@ make -j 8 $flags_make all
 ./test_procedure.sh bin/SM_triplet.x        150
 
 ### ~30min long VLQ calculations
-cd testlibraries/vectorlike; ../../test_procedure.sh B0_mixing_VLQ.sh 2400
+cd testlibraries/vectorlike; ../../test_procedure.sh "./B0_mixing_VLQ.sh testlib NoBoson" 2400
