@@ -152,7 +152,7 @@ int main() {
     mty::option::displayAbbreviations = false;
     using namespace sm_input;
     for (auto &value : {M_Z, M_W, theta_W, e_em, alpha_em, m_b, m_s, m_t, m_mu,
-            V_ud, V_us, V_ub_mod, delta_wolf, V_cd, V_cb, V_cs, V_td, V_ts, V_tb})
+            V_ud, V_us, V_ub, V_ub_mod, delta_wolf, V_cd, V_cb, V_cs, V_td, V_ts, V_tb})
         value->setValue(CSL_UNDEF);
 
     SM.getParticle("h0")->setEnabledInDiagrams(false);
@@ -166,6 +166,7 @@ int main() {
     Library::setQuadruplePrecision(true);
     Library lib("C9_MSSM");
     lib.generateSpectrum(SM);
+    lib.print();
     //getC9A(SM, lib);
     getC9A_old(SM, lib);
     getC9BZ(SM, lib);

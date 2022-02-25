@@ -9,6 +9,7 @@ void fillCKM(param_t &params)
     auto V_ub = 0.00117;// + i*-0.00338;
     params.V_ub_mod = cabsq(V_ub);
     params.delta_wolf = -cargq(V_ub);
+    // params.V_ub = complex_t{0.00117, -0.00338};
     params.V_cd = complex_t{-0.22492 , -0.00014};
     params.V_cs = complex_t{0.97351 , -0.00003};
     params.V_cb = real_t{0.04108};

@@ -137,7 +137,11 @@ int main() {
    loadKinematics<5>(square1);
    loadKinematics<5>(square2);
 
+   square1 = csl::Evaluated(csl::DeepExpanded(square1), csl::eval::all);
+   square2 = csl::Evaluated(csl::DeepExpanded(square2), csl::eval::all);
+
    csl::Expr shouldBeS1 =  1.15139*csl::pow_s(g, 6) + 14637*csl::pow_s(-csl::int_s(10)/1547, 2)*csl::pow_s(g, 6);
+   csl::Evaluate(shouldBeS1, csl::eval::all);
 
    csl::Expr shouldBeS2 = 13.0823*csl::pow_s(g, 6);
 
