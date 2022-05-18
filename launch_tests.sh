@@ -30,15 +30,15 @@ fi
 #cd ../../csl  ; $clean_make; make -j 8 all && make install
 #cd ../marty; $clean_make; make -j 8 lib && make install
 #cd ../tests/systemTests
-make -j 8 $flags_make all
+make -j 2 $flags_make all
 
 
 ./test_procedure.sh bin/FItests.x           1
-./test_procedure.sh bin/testZmumu.x         5 
+./test_procedure.sh bin/testZmumu.x         5
 ./test_procedure.sh bin/reinterpretation.x  10
 ./test_procedure.sh bin/testConjugation.x   10
-./test_procedure.sh bin/testWidths.x        20 
-./test_procedure.sh bin/testEWGauge.x       30 
+./test_procedure.sh bin/testWidths.x        20
+./test_procedure.sh bin/testEWGauge.x       30
 ./test_procedure.sh bin/testMajoranaLoop.x  25
 ./test_procedure.sh bin/gm2SM.x             8
 ./test_procedure.sh bin/C7_SM.x             15

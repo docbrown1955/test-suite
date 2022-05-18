@@ -92,7 +92,7 @@ void calculateMixingCoefficients(
 void undefineSMVariables()
 {
     using namespace sm_input;
-    for (auto &var : {e_em, V_ud, V_us, V_ub_mod, delta_wolf,
+    for (auto &var : {e_em, V_ud, V_us, V_ub, delta_wolf,
             V_cd, V_cs, V_cb, V_td, V_ts, V_tb, m_u, m_d, m_s, m_c, m_b,
             m_t, theta_W, M_W, M_Z, g_s}) {
         var->setValue(CSL_UNDEF);
