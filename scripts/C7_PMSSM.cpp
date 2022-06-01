@@ -87,5 +87,5 @@ int main() {
             "1e-5"
             );
 
-    return 0;
+    return sysres;
 }

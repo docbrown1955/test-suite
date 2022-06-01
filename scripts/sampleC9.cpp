@@ -230,5 +230,5 @@ int main() {
     // std::cout << "CA = " <<   csl::Evaluated(C2, csl::eval::abbreviation) << '\n';
     // std::cout << "CTot = " << csl::Evaluated(C3, csl::eval::abbreviation) << '\n';
 
-    return 0;
+    return sysres;
 }

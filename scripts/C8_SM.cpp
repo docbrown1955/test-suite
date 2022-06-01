@@ -13,7 +13,7 @@ using namespace sm_input;
 
 std::vector<size_t> pos;
 
-void calculate(Model &model, gauge::Type gauge)
+int calculate(Model &model, gauge::Type gauge)
 {
     using namespace mty::sm_input;
     for (auto &expr : {e_em, m_b, m_t, m_s, theta_W, alpha_s, alpha_em, g_s})
@@ -84,6 +84,8 @@ void calculate(Model &model, gauge::Type gauge)
 #ifndef PRINT_PROG
     std::cout.setstate(std::ios_base::failbit);
 #endif
+
+    return sysres;
 }
 
 int main() {
@@ -98,7 +100,5 @@ int main() {
 
     // calculate(sm, gauge::Type::Feynman);
     // calculate(sm, gauge::Type::Lorenz);
-    calculate(sm, gauge::Type::Unitary);
-
-    return 0;
+    return calculate(sm, gauge::Type::Unitary);
 }

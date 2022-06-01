@@ -59,5 +59,5 @@ int main() {
             "data/BsMixingSM.txt "
             "BsMixingSM/data.txt 1e-8"
             );
-    return 0;
+    return sysres;
 }

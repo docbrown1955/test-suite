@@ -205,11 +205,11 @@ int main() {
 
     const auto tester = areEqual(hardComparison);
 
-    test(buildMessage("Reduction of ", I1, " to 0"), tester, reduced(I1), CSL_0);
-    test(buildMessage("Reduction of ", I2, " to 0"), tester, reduced(I2), res2);
-    test(buildMessage("Reduction of ", I3, " to 0"), tester, reduced(I3), CSL_0);
-    test(buildMessage("Reduction of ", I4, " to 0"), tester, reduced(I4), CSL_0);
-    test(buildMessage("Reduction of ", I5, " to 0"), tester, reduced(I5), res5);
+    int res = test(buildMessage("Reduction of ", I1, " to 0"), tester, reduced(I1), CSL_0);
+    res |= test(buildMessage("Reduction of ", I2, " to 0"), tester, reduced(I2), res2);
+    res |= test(buildMessage("Reduction of ", I3, " to 0"), tester, reduced(I3), CSL_0);
+    res |= test(buildMessage("Reduction of ", I4, " to 0"), tester, reduced(I4), CSL_0);
+    res |= test(buildMessage("Reduction of ", I5, " to 0"), tester, reduced(I5), res5);
 
-    return 0;
+    return res;
 }

@@ -147,4 +147,6 @@ int main() {
     sysres = system("cd THDM_paper; make >/dev/null && bin/example_thdm_paper.x > /dev/null");
     std::cout.clear();
     sysres = system( "bin/comparedata.x data/gthdm.txt THDM_paper/data.txt 1e-5");
+
+    return sysres;
 }

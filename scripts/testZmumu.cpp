@@ -99,15 +99,15 @@ int main() {
 
    // Total cross-section calculation
    sysres = system("cd Zmumu; bin/example_zmumu.x 0 >/dev/null");
-   sysres = system("bin/comparedata.x data/ee_mumu_tot.txt Zmumu/data.txt 1e-5");
+   int res = system("bin/comparedata.x data/ee_mumu_tot.txt Zmumu/data.txt 1e-5");
 
    // Forward-Backward asymetry
    sysres = system("cd Zmumu; bin/example_zmumu.x 1 >/dev/null");
-   sysres = system("bin/comparedata.x data/ee_mumu_AFB.txt Zmumu/data.txt 1e-5");
+   res |= system("bin/comparedata.x data/ee_mumu_AFB.txt Zmumu/data.txt 1e-5");
 
    // Left- and right-handed contributions
    sysres = system("cd Zmumu; bin/example_zmumu.x 2 >/dev/null");
-   sysres = system("bin/comparedata.x data/ee_mumu_LR.txt Zmumu/data.txt 1e-5");
+   res |= system("bin/comparedata.x data/ee_mumu_LR.txt Zmumu/data.txt 1e-5");
 
-    return 0;
+   return res;
 }

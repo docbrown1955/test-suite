@@ -75,5 +75,5 @@ int main() {
     sysres = system("cd gm2_sm; make clean; make -j 4 >/dev/null && "
                     " bin/example_gm2_sm.x > /dev/null");
     sysres = system("bin/comparedata.x data/gm2_sm.txt gm2_sm/real.txt 1e-5"); 
-   return 0;
+    return sysres;
 }

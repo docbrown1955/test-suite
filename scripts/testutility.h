@@ -61,7 +61,7 @@ inline void error(std::string_view message)
 }
 
 template<class BaseCallable, class ...Params>
-void test(
+int test(
         std::string_view message, 
         BaseCallable && callable,
         Params       && ...params
@@ -72,9 +72,11 @@ void test(
     std::cout << testfont << "Test : " << resetfont << message << '\n';
     if (res.success) {
         success(res.message);
+        return 0;
     }
     else {
         error(res.message);
+        return 1;
     }
 }
 

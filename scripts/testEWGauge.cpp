@@ -48,5 +48,5 @@ int main() {
     sysres = system("cd EWGauge; bin/example_ewgauge.x>/dev/null");
     sysres = system("bin/comparedata.x data/EWgauge.txt EWGauge/data.txt 1e-3");
 
-    return 0;
+    return sysres;
 }

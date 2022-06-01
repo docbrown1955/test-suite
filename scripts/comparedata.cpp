@@ -125,13 +125,13 @@ int main(int argc, char **argv) {
             << file1 << "\" and file \"" << file2 << "\": \n" << RESET;
         std::cout << "Average relative error = " << res.first << std::endl;
         std::cout << "Maximum relative error = " << res.second << std::endl;
+        return 0;
     }
     else {
         std::cout << ERRORFONT << "Discrepancy between file \"" 
             << file1 << "\" and file \"" << file2 << "\": \n" << RESET;
         std::cout << "Average relative error = " << res.first << std::endl;
         std::cout << "Maximum relative error = " << res.second << std::endl;
+        return 1;
     }
-
-    return 0;
 }

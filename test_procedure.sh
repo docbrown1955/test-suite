@@ -1,7 +1,7 @@
 #!/bin/bash
 
 RESET="\033[0m"
-ERRORFONT="\033[1m\033[31m" 
+ERRORFONT="\033[1m\033[31m"
 SUCCESSFONT="\033[1m\033[32m"
 BOLDBLUEFONT="\033[1;34m"
 
@@ -40,6 +40,7 @@ startTime=$SECONDS
 if ! $executable
 then
     error "Program $executable did not finished successfully."
+    exit 1
 else
     success "Program $executable ended successfully"
 fi

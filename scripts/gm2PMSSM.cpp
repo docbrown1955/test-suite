@@ -70,4 +70,5 @@ int main() {
                     " bin/example_gm2pmssm.x > /dev/null");
     sysres = system("bin/comparedata.x data/gm2_pmssm.txt "
                     "gm2PMSSM/data.txt 1e-17");
+    return sysres;
 }

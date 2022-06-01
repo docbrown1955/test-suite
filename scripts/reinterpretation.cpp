@@ -91,5 +91,5 @@ int main() {
             "gg_to_tt/data.txt 1e-5"
             );
 
-    return 0;
+    return sysres;
 }

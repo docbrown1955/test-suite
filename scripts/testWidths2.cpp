@@ -89,5 +89,5 @@ int main() {
    sysres = system("cd widths_lib; make >/dev/null && bin/example_widths_lib.x >/dev/null");
    sysres = system("bin/comparedata.x data/widths_with_hBB_1L.txt widths_lib/data.txt 1e-5");
 
-   return 0;
+   return sysres;
 }

@@ -12,7 +12,7 @@ using namespace mty;
 // #define PRINT_PROG
 #define MARTY_VERSION 13
 
-void calculate(Model &model)
+int calculate(Model &model)
 {
     Expr V_ts_star = csl::GetComplexConjugate(sm_input::V_ts);
     Expr V_tb = sm_input::V_tb;
@@ -119,7 +119,7 @@ void calculate(Model &model)
     sysres = system("cp libscripts/example_c8_pmssm.cpp C8_PMSSM/script");
     sysres = system("cd C8_PMSSM; make >/dev/null&& bin/example_c8_pmssm.x > /dev/null");
     std::cout.clear();
-    sysres = system(
+    return system(
             "bin/comparedata.x "
             "data/C8_marty_tanb50_ss.txt "
             "C8_PMSSM/C8_marty_tanb50_ss.txt "
@@ -131,7 +131,5 @@ int main() {
 
     auto pmssm_model = mty::PMSSM_LEM();
 
-    calculate(pmssm_model);
-
-    return 0;
+    return calculate(pmssm_model);
 }

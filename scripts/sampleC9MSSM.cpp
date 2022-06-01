@@ -191,6 +191,5 @@ int main() {
     sysres = system("bin/comparedata.x data/C9_marty_tanb50_ss.txt "
                     "C9_MSSM/C9_marty_tanb50_ss.txt 1e-5");
 
-
-    return 0;
+    return sysres;
 }
