@@ -1,5 +1,5 @@
 CC               = g++-7
-CFLAGS 		 = -g -Wall -Wextra -Wpedantic -std=c++17 -O3 -fPIC #-Wfatal-errors# -DPRINT_PROG
+CFLAGS 		 = -g -Wall -Wextra -Wpedantic -std=c++17 -fPIC #-Wfatal-errors# -DPRINT_PROG
 
 BINDIR     = bin
 PROGDIR    = scripts

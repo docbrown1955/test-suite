@@ -45,7 +45,6 @@ make -j 2 $flags_make all
 exit_if_failed
 ./test_procedure.sh bin/testZmumu.x         5
 exit_if_failed
-exit 1
 ./test_procedure.sh bin/reinterpretation.x  10
 exit_if_failed
 ./test_procedure.sh bin/testConjugation.x   10
