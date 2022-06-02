@@ -13,11 +13,11 @@ auto cc(csl::Expr const &expr) { return GetComplexConjugate(expr); }
 int main() {
 
     // Disabling output, comment for enabling it again
-    std::cout.setstate(std::ios_base::failbit);
-    std::cerr.setstate(std::ios_base::failbit);
+    // std::cout.setstate(std::ios_base::failbit);
+    // std::cerr.setstate(std::ios_base::failbit);
 
     // Removing the existing Zmumu library
-    [[maybe_unused]] int sysres = system("rm -r Zmumu/* >/dev/null");
+    [[maybe_unused]] int sysres = system("rm -r Zmumu/* ");
 
     // Building a U(1) gauge to have a photon-like interaction
     Model model;
@@ -95,18 +95,18 @@ int main() {
     lib.print();
 
    sysres = system("cp libscripts/example_zmumu.cpp libscripts/kinematics.h Zmumu/script");
-   sysres = system("cd Zmumu; make >/dev/null");
+   sysres = system("cd Zmumu; make ");
 
    // Total cross-section calculation
-   sysres = system("cd Zmumu; bin/example_zmumu.x 0 >/dev/null");
+   sysres = system("cd Zmumu; bin/example_zmumu.x 0 ");
    int res = system("bin/comparedata.x data/ee_mumu_tot.txt Zmumu/data.txt 1e-5");
 
    // Forward-Backward asymetry
-   sysres = system("cd Zmumu; bin/example_zmumu.x 1 >/dev/null");
+   sysres = system("cd Zmumu; bin/example_zmumu.x 1 ");
    res |= system("bin/comparedata.x data/ee_mumu_AFB.txt Zmumu/data.txt 1e-5");
 
    // Left- and right-handed contributions
-   sysres = system("cd Zmumu; bin/example_zmumu.x 2 >/dev/null");
+   sysres = system("cd Zmumu; bin/example_zmumu.x 2 ");
    res |= system("bin/comparedata.x data/ee_mumu_LR.txt Zmumu/data.txt 1e-5");
 
    return res;
