@@ -34,6 +34,7 @@ int main() {
 
     Library{""}.setQuadruplePrecision(true);
     Library lib("EWGauge");
+    lib.cleanExistingSources();
     lib.addFunction("M2_tot", M2tot);
     lib.addFunction("M2_V3", M2V3);
     lib.addFunction("M2_V4", M2V4);

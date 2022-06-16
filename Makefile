@@ -1,4 +1,4 @@
-CC               = g++-7
+CC               = g++
 CFLAGS 		 = -g -Wall -Wextra -Wpedantic -std=c++17 -fPIC #-Wfatal-errors# -DPRINT_PROG
 
 BINDIR     = bin
@@ -9,7 +9,7 @@ MODELDIR   = models/include
 INCPATH    = 
 LIBPATH    = 
 INCLIBPATH = $(INCPATH) $(LIBPATH)
-LIBS       = -lmarty 
+LIBS       = -lmarty -lgsl -lgslcblas -lgfortran -looptools
  
 PROG     = $(wildcard $(PROGDIR)/*.cpp)
 BIN      = $(subst .cpp,.x,      $(subst $(PROGDIR)/,,$(PROG)))

@@ -14,7 +14,7 @@
 // along with MARTY. If not, see <https://www.gnu.org/licenses/>.
 
 #include "marty.h"
-#include "marty/pmssm_lem.h"
+#include "marty/models/pmssm_lem.h"
 
 using namespace csl;
 using namespace mty;

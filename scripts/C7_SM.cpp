@@ -1,5 +1,4 @@
 #include <marty.h>
-#include <marty/sgl.h>
 
 using namespace csl;
 using namespace mty;

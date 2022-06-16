@@ -1,5 +1,5 @@
 #include <marty.h>
-#include "marty/pmssm_lem.h"
+#include "marty/models/pmssm_lem.h"
 #include <fstream>
 #include <sstream>
 
@@ -96,6 +96,7 @@ int main() {
     process_file.close();
 
     mty::Library lib("full_MSSM");
+    lib.cleanExistingSources();
     lib.generateSpectrum(pmssm);
 
     calculateProcesses(pmssm, lib, feynman_processes, false);
