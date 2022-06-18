@@ -1,5 +1,5 @@
 #include <marty.h>
-#include "marty/models/pmssm_lem.h"
+#include "marty/pmssm_lem.h"
 #include <fstream>
 #include <sstream>
 

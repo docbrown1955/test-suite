@@ -1,5 +1,5 @@
 #include "marty.h"
-#include "marty/models/pmssm_lem.h"
+#include "marty/pmssm_lem.h"
 
 using namespace mty;
 using namespace sm_input;
@@ -69,6 +69,6 @@ int main() {
     sysres = system("cd gm2PMSSM; make clean; make -j 4 >/dev/null && "
                     " bin/example_gm2pmssm.x > /dev/null");
     sysres = system("bin/comparedata.x data/gm2_pmssm.txt "
-                    "gm2PMSSM/data.txt 1e-17");
+                    "gm2PMSSM/data.txt 1e-10");
     return sysres;
 }

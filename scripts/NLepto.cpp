@@ -356,6 +356,7 @@ int main() {
         }
     }
     myLib.generateSpectrum(toyModel);
+    myLib.cleanExistingSources();
     // Writing all the relevant libraries
     myLib.addIPath("/usr/local/Cellar/boost/1.74.0/include");
     myLib.addIPath("/usr/local/Cellar/eigen/3.3.8_1/include");

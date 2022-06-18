@@ -43,6 +43,7 @@ int main() {
 
    mty::Library::setQuadruplePrecision(true);
    mty::Library lib("gm2_sm");
+   lib.cleanExistingSources();
 
    FeynOptions options;
    options.setTopology(Topology::Triangle);
@@ -54,7 +55,7 @@ int main() {
          {Incoming("e"), Outgoing("e"), Outgoing("A")}, 
          options);
    csl::Expr C = gm2(sm, wil);
-   lib.addFunction("gm2_e", C);
+   lib.addFunction("gm2_e", C, true);
 
    options.resetFilters();
    options.addFilter([&](FeynmanDiagram const &diag) { return !diag.isInLoop("A"); });
@@ -65,7 +66,7 @@ int main() {
          );
    Display(wil);
    C = gm2(sm, wil);
-   lib.addFunction("gm2_eW", C);
+   lib.addFunction("gm2_eW", C, true);
 
    lib.print();
 

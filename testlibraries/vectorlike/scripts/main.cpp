@@ -105,9 +105,9 @@ int main() {
     model_params.model5  = 0;
     model_params.model6  = 0;
     model_params.model7  = 0;
-    model_params.model8  = 1;
-    model_params.model9  = 1;
-    model_params.model10 = 0;
+    model_params.model8  = 0;
+    model_params.model9  = 0;
+    model_params.model10 = 1;
     model_params.model11 = 0;
     auto masses = vl::VectorLike_Model::getVLQMasses(model_params);
     vl::VectorLike_Model model(model_params);
