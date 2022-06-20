@@ -1,6 +1,7 @@
 #pragma once
 
 #include "marty.h"
+#include "marty/models/sm.h"
 
 namespace vl {
 
