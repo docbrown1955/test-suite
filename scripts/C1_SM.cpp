@@ -1,4 +1,5 @@
 #include "marty.h"
+#include "marty/models/sm.h"
 
 using namespace csl;
 using namespace mty;
