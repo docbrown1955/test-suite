@@ -9,8 +9,8 @@ MODELDIR   = models/include
 INCPATH    = 
 LIBPATH    = 
 INCLIBPATH = $(INCPATH) $(LIBPATH)
-LIBS       = -lmarty -lgsl -lgslcblas -lgfortran -looptools
- 
+LIBS       = -lmarty
+
 PROG     = $(wildcard $(PROGDIR)/*.cpp)
 BIN      = $(subst .cpp,.x,      $(subst $(PROGDIR)/,,$(PROG)))
 

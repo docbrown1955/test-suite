@@ -1,8 +1,8 @@
 #include "gm2_sm.h"
 #include <fstream>
 #include "clooptools.h"
-#include "marty/looptools_init.h"
-#include "marty/looptools_interface.h"
+#include "marty/core/looptools_init.h"
+#include "marty/core/looptools_interface.h"
 
 using namespace gm2_sm;
 
