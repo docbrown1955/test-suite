@@ -3,6 +3,7 @@
  * in a custom model with a photon-like boson and a Z-like boson.
  */
 #include <marty.h>
+#include "marty/models/sm.h"
 
 using namespace csl;
 using namespace mty;

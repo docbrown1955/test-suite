@@ -1,7 +1,7 @@
 #include "gm2pmssm.h"
 #include <fstream>
 #include <iomanip>
-#include "marty/looptools_interface.h"
+#include "marty/core/looptools_interface.h"
 
 using namespace gm2pmssm;
 

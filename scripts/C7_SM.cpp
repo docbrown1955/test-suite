@@ -1,5 +1,5 @@
 #include <marty.h>
-#include <marty/sgl.h>
+#include "marty/models/sm.h"
 
 using namespace csl;
 using namespace mty;
@@ -50,6 +50,7 @@ int calculate(Model &model, gauge::Type gauge)
 
     [[maybe_unused]] int sysres = system("rm -r C7_SM");
     mty::Library wilsonLib("C7_SM", ".");
+    wilsonLib.cleanExistingSources();
     wilsonLib.addFunction("C7", CC7);
     wilsonLib.addFunction("C7_p", CC7p);
     wilsonLib.print();

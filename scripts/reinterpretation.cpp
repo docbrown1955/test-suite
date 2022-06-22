@@ -4,6 +4,7 @@
  * polarizations from the results.
  */
 #include <marty.h>
+#include "marty/models/sm.h"
 
 using namespace std;
 using namespace csl;

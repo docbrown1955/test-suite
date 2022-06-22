@@ -1,8 +1,8 @@
 #include "gm2_sm.h"
 #include <fstream>
 #include "clooptools.h"
-#include "marty/looptools_init.h"
-#include "marty/looptools_interface.h"
+#include "marty/core/looptools_init.h"
+#include "marty/core/looptools_interface.h"
 
 using namespace gm2_sm;
 
@@ -29,7 +29,7 @@ int main() {
   std::ofstream real("real.txt");
   std::ofstream imag("imag.txt");
 
-  mty::lt::reg_int = 1e-8;
+  getIntegrationParameters()->reg_int = 1e-8;
   int n1(0), n2(0);
   // Numerical instability partly regularized below 10^(-4)
     for (double exp_me = -4; exp_me <= +10; exp_me += 0.1) {

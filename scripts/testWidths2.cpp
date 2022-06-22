@@ -1,4 +1,6 @@
 #include <marty.h>
+#include "marty/models/sm.h"
+#include "marty/models/thdm.h"
 #include "testutility.h"
 
 void addWidth(
@@ -65,7 +67,7 @@ int main() {
 
    // h -> Wloop -> AA
    options.resetFilters();
-   auto SSM = mty::TwoHDM_Model<4>{};
+   auto SSM = mty::THDM_Model<4>{};
    options.addFilter(mty::filter::forceParticles({"W"}));
    // addWidth(SM, lib, "M2_hAA_W", {
    //       mty::Incoming("h"), mty::Outgoing("A"), mty::Outgoing(mty::AntiPart("A"))

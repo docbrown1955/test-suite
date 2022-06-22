@@ -385,6 +385,7 @@ int main() {
     
     
     mty::Library myLib("SMtrip", path_to_generated_library);
+    myLib.cleanExistingSources();
     myLib.addFunction("squared_ampl0", squared_ampl0);
     myLib.addFunction("squared_ampl1", squared_ampl1);
 
