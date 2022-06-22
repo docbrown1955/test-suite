@@ -1,8 +1,8 @@
 INSTALLDIR=/home/uhlrich/.local
 
-CC = gcc-7
-CXX = g++-7
-FC = gfortran-7
+CC = gcc
+CXX = g++
+FC = gfortran
 VERSION=1.0
 
 CXXDEBUG  = $(CXX) -g -D DEBUG
