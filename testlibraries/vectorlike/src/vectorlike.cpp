@@ -28,6 +28,7 @@ namespace vl {
     VectorLike_Model::VectorLike_Model(Model const &model)
         :SM_Model(false)
     {
+        initContent();
         if (model.model5)
             addVectorLike("Ds", 0, -CSL_1/3,    csl::constant_s("M_Ds"));
         if (model.model6)
@@ -42,7 +43,7 @@ namespace vl {
             addVectorLike("VQu", 1, 7*CSL_1/6, csl::constant_s("M_Qu"));
         if (model.model11)
             addVectorLike("VQd", 1, -5*CSL_1/6, csl::constant_s("M_Qd"));
-        init();
+        getToLowEnergyLagrangian();
         renameSMQuarkMasses();
         if (model.model7) {
             auto TL1 = getParticle("Td_L_1");
@@ -54,7 +55,7 @@ namespace vl {
             auto YL = TL1->generateSimilar("Ytd_L");
             auto YR = TR1->generateSimilar("Ytd_R");
             csl::Index a = mty::DiracIndex();
-            csl::Index c = generateIndex("SU3c", "Td_L_1");
+            csl::Index c = generateIndex("C", "Td_L_1");
             csl::Expr sqrt2 = csl::sqrt_s(2);
             replace(TL1, (UL({c,a}) + YL({c,a})) / sqrt2);
             replace(TR1, (UR({c,a}) + YR({c,a})) / sqrt2);
@@ -73,7 +74,7 @@ namespace vl {
             auto DL = TL1->generateSimilar("Dtu_L");
             auto DR = TR1->generateSimilar("Dtu_R");
             csl::Index a = mty::DiracIndex();
-            csl::Index c = generateIndex("SU3c", "Tu_L_1");
+            csl::Index c = generateIndex("C", "Tu_L_1");
             csl::Expr sqrt2 = csl::sqrt_s(2);
             replace(TL1, (XL({c,a}) + DL({c,a})) / sqrt2);
             replace(TR1, (XR({c,a}) + DR({c,a})) / sqrt2);
@@ -168,12 +169,12 @@ namespace vl {
                 name + "_L", *this, mty::Chirality::Left);
         mty::Particle VLQ_R = mty::weylfermion_s(
                 name + "_R", *this, mty::Chirality::Right);
-        VLQ_L->setGroupRep("SU3c", {1, 0});
-        VLQ_L->setGroupRep("SU2L", irrepSU2);
-        VLQ_L->setGroupRep("U1Y", {num, denom});
-        VLQ_R->setGroupRep("SU3c", {1, 0});
-        VLQ_R->setGroupRep("SU2L", irrepSU2);
-        VLQ_R->setGroupRep("U1Y", {num, denom});
+        VLQ_L->setGroupRep("C", {1, 0});
+        VLQ_L->setGroupRep("L", irrepSU2);
+        VLQ_L->setGroupRep("Y", {num, denom});
+        VLQ_R->setGroupRep("C", {1, 0});
+        VLQ_R->setGroupRep("L", irrepSU2);
+        VLQ_R->setGroupRep("Y", {num, denom});
         addParticles({VLQ_L, VLQ_R});
         addFermionicMass(VLQ_L, VLQ_R, mass);
 
@@ -182,12 +183,12 @@ namespace vl {
         mty::Particle UR = getParticle("U_R");
         mty::Particle H  = getParticle("H");
 
-        csl::Tensor eps = getVectorSpace("SU2L", "H")->getEpsilon();
-        csl::Tensor sig_half = getGenerator("SU2L", "H");
-        std::vector<csl::Index> i = generateIndices(10, "SU2L", "H");
+        csl::Tensor eps = getVectorSpace("L", "H")->getEpsilon();
+        csl::Tensor sig_half = getGenerator("L", "H");
+        std::vector<csl::Index> i = generateIndices(10, "L", "H");
         csl::Index a = mty::DiracIndex();
-        csl::Index c = generateIndex("SU3c", "Q");
-        csl::Index p = generateIndex("SU2L", "W");
+        csl::Index c = generateIndex("C", "Q");
+        csl::Index p = generateIndex("L", "W");
 
         csl::Tensor Ld("Ld_" + name, getVectorSpace("SM_flavor", "E_R"));
         csl::Tensor Lu("Lu_" + name, getVectorSpace("SM_flavor", "E_R"));
@@ -207,8 +208,8 @@ namespace vl {
             if (num == 2 && denom == 3) { // Tu
                 addTensorCoupling(LTu);
                 addLagrangianTerm(
-                        -2*LTu(I)/sqrt2 * GetComplexConjugate(QL({I,i[0],c,a}))
-                            * VLQ_R({p,c,a}) * sig_half({p,i[0],i[1]})
+                        -2*LTu(I)/sqrt2 * GetComplexConjugate(QL({I,c,i[0],a}))
+                            * VLQ_R({c,p,a}) * sig_half({p,i[0],i[1]})
                             * eps({i[1], i[2]}) * GetComplexConjugate(H(i[2])),
                         true
                         );
@@ -216,8 +217,8 @@ namespace vl {
             else if (num == -1 && denom == 3) { // Td
                 addTensorCoupling(LTd);
                 addLagrangianTerm(
-                        -2*LTd(I)/sqrt2 * GetComplexConjugate(QL({I,i[0],c,a}))
-                            * VLQ_R({p,c,a}) * sig_half({p,i[0],i[1]})
+                        -2*LTd(I)/sqrt2 * GetComplexConjugate(QL({I,c,i[0],a}))
+                            * VLQ_R({c,p,a}) * sig_half({p,i[0],i[1]})
                             * H(i[1]),
                         true
                         );
@@ -229,13 +230,13 @@ namespace vl {
                 addTensorCoupling(Ld);
                 addTensorCoupling(Lu);
                 addLagrangianTerm(
-                        -Ld(I) * GetComplexConjugate(VLQ_L({i[0],c,a}))
-                            * DR({I,c,a}) * H(i[0]),
+                        -Ld(I) * GetComplexConjugate(VLQ_L({c,i[0],a}))
+                            * DR({c,I,a}) * H(i[0]),
                         true
                         );
                 addLagrangianTerm(
-                        -Lu(I) * GetComplexConjugate(VLQ_L({i[0],c,a}))
-                            * UR({I,c,a}) * eps({i[0], i[1]})
+                        -Lu(I) * GetComplexConjugate(VLQ_L({c,i[0],a}))
+                            * UR({c,I,a}) * eps({i[0], i[1]})
                             * GetComplexConjugate(H(i[1])),
                         true
                         );
@@ -244,8 +245,8 @@ namespace vl {
                 // Qu 
                 addTensorCoupling(Lx);
                 addLagrangianTerm(
-                        -Lx(I) * GetComplexConjugate(VLQ_L({i[0],c,a}))
-                            * UR({I,c,a}) * H(i[0]),
+                        -Lx(I) * GetComplexConjugate(VLQ_L({c,i[0],a}))
+                            * UR({c,I,a}) * H(i[0]),
                         true
                         );
             }
@@ -253,8 +254,8 @@ namespace vl {
                 // Qd 
                 addTensorCoupling(Ly);
                 addLagrangianTerm(
-                        -Ly(I) * GetComplexConjugate(VLQ_L({i[0],c,a}))
-                            * DR({I,c,a}) * eps({i[0], i[1]})
+                        -Ly(I) * GetComplexConjugate(VLQ_L({c,i[0],a}))
+                            * DR({c,I,a}) * eps({i[0], i[1]})
                             * GetComplexConjugate(H(i[1])),
                         true
                         );
@@ -265,7 +266,7 @@ namespace vl {
                 // Model 5
                 addTensorCoupling(L5d);
                 addLagrangianTerm(
-                        -L5d(I) * GetComplexConjugate(QL({I, i[0],c,a}))
+                        -L5d(I) * GetComplexConjugate(QL({I,c,i[0],a}))
                             * VLQ_R({c,a}) * H(i[0]),
                         true
                         );
@@ -274,7 +275,7 @@ namespace vl {
                 // Model 6
                 addTensorCoupling(L5u);
                 addLagrangianTerm(
-                        -L5u(I) * GetComplexConjugate(QL({I, i[0],c,a}))
+                        -L5u(I) * GetComplexConjugate(QL({I,c,i[0],a}))
                             * VLQ_R({c,a}) * eps({i[0], i[1]}) 
                             * csl::GetComplexConjugate(H(i[1])),
                         true
