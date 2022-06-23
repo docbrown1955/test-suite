@@ -19,7 +19,7 @@ void addBosonFilter(
 {
     switch (filter) {
         case BosonFilter::SMExtension:
-            options.addFilter(filter::forceParticles({"h0", "G0", "Gp"}));
+            options.addFilter(filter::forceParticles({"h", "G0", "Gp"}));
             break;
         case BosonFilter::NoBoson:
             options.addFilter(filter::disableParticles({"W", "Z", "A", "G"}));
