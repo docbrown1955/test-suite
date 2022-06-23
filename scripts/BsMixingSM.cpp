@@ -27,7 +27,7 @@ std::pair<csl::Expr, csl::Expr> calculate(Model &model)
     auto O_VLL = dimension6Operator(model, wil, DiracCoupling::VL, DiracCoupling::VL);
     csl::Expr C1 = getWilsonCoefficient(wil, O_VLL);
     csl::Expr C2 = getWilsonCoefficient(wil, dimension6Operator(model, wil, DiracCoupling::VL, DiracCoupling::VL,
-            {"SU3c", ColorCoupling::Crossed}));
+            {"C", ColorCoupling::Crossed}));
 
     return {C1, C2};
 }
