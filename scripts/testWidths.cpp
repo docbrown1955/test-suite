@@ -37,13 +37,13 @@ int main() {
    [[maybe_unused]] int sysres = system("rm -r widths_lib/* >/dev/null");
    mty::Library lib("widths_lib");
    addWidth(SM, lib, "M2_hWW", {
-         mty::Incoming("h0"), mty::Outgoing("W"), mty::Outgoing(mty::AntiPart("W"))
+         mty::Incoming("h"), mty::Outgoing("W"), mty::Outgoing(mty::AntiPart("W"))
          });
    addWidth(SM, lib, "M2_hZZ", {
-         mty::Incoming("h0"), mty::Outgoing("Z"), mty::Outgoing("Z")
+         mty::Incoming("h"), mty::Outgoing("Z"), mty::Outgoing("Z")
          });
    addWidth(SM, lib, "M2_hbb", {
-         mty::Incoming("h0"), mty::Outgoing("b"), mty::Outgoing(mty::AntiPart("b"))
+         mty::Incoming("h"), mty::Outgoing("b"), mty::Outgoing(mty::AntiPart("b"))
          });
    addWidth(SM, lib, "M2_Wlnu", {
          mty::Incoming("W"), mty::Outgoing("nu_mu"), mty::Outgoing(mty::AntiPart("mu"))
@@ -56,22 +56,22 @@ int main() {
          });
    mty::FeynOptions options;
    options.addFilter(mty::filter::forceParticle("t"));
-   // h0 -> tloop -> AA
+   // h -> tloop -> AA
    addWidth(SM, lib, "M2_hAA_t", {
-         mty::Incoming("h0"), mty::Outgoing("A"), mty::Outgoing(mty::AntiPart("A"))
+         mty::Incoming("h"), mty::Outgoing("A"), mty::Outgoing(mty::AntiPart("A"))
          }, mty::OneLoop, options);
 
-   // h0 -> tloop -> GG
+   // h -> tloop -> GG
    // SM.getParticle("t")->setMass(SM.getParticle("b")->getMass());
    addWidth(SM, lib, "M2_hGG", {
-         mty::Incoming("h0"), mty::Outgoing("G"), mty::Outgoing(mty::AntiPart("G"))
+         mty::Incoming("h"), mty::Outgoing("G"), mty::Outgoing(mty::AntiPart("G"))
          }, mty::OneLoop, options);
 
-   // h0 -> Wloop -> AA
+   // h -> Wloop -> AA
    options.resetFilters();
    options.addFilter(mty::filter::forceParticles({"W", "Gp"}));
    addWidth(SM, lib, "M2_hAA_W", {
-         mty::Incoming("h0"), mty::Outgoing("A"), mty::Outgoing(mty::AntiPart("A"))
+         mty::Incoming("h"), mty::Outgoing("A"), mty::Outgoing(mty::AntiPart("A"))
          }, mty::OneLoop, options);
    lib.print();
 

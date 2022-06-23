@@ -28,7 +28,7 @@ int main() {
     auto forceH = filter::forceParticle("Hp");
     auto disableW = filter::disableParticles({"W", "Gp"});
     auto disableLightQuarks = filter::disableParticles({"u", "c"});
-    auto disableNeutralHiggses = filter::disableParticles({"h0", "H0", "A0"});
+    auto disableNeutralHiggses = filter::disableParticles({"h", "H0", "A0"});
 
     FeynOptions options;
     options.addFilters(forceH, disableLightQuarks, disableNeutralHiggses);

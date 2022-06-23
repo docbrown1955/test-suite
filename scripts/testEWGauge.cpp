@@ -19,7 +19,7 @@ int main() {
             );
     // Show(ampl);
     auto noHiggs = ampl.filterOut([&](FeynmanDiagram const &diag) {
-        return !diag.contains("h0");
+        return !diag.contains("h");
     });
     auto V4 = noHiggs.filterOut([&](FeynmanDiagram const &diag) {
         return !diag.isMediator("W") && !diag.isMediator("Gp");

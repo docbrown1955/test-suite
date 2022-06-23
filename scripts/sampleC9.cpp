@@ -209,7 +209,7 @@ int main() {
     for (auto &value : {M_Z, M_W, theta_W, e_em, alpha_em, m_b, m_s, m_t, m_mu})
         value->setValue(CSL_UNDEF);
 
-    SM.getParticle("h0")->setEnabledInDiagrams(false);
+    SM.getParticle("h")->setEnabledInDiagrams(false);
     SM.getParticle("u")->setEnabledInDiagrams(false);
     SM.getParticle("c")->setEnabledInDiagrams(false);
 
