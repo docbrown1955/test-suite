@@ -231,12 +231,12 @@ namespace vl {
                 addTensorCoupling(Lu);
                 addLagrangianTerm(
                         -Ld(I) * GetComplexConjugate(VLQ_L({c,i[0],a}))
-                            * DR({c,I,a}) * H(i[0]),
+                            * DR({I,c,a}) * H(i[0]),
                         true
                         );
                 addLagrangianTerm(
                         -Lu(I) * GetComplexConjugate(VLQ_L({c,i[0],a}))
-                            * UR({c,I,a}) * eps({i[0], i[1]})
+                            * UR({I,c,a}) * eps({i[0], i[1]})
                             * GetComplexConjugate(H(i[1])),
                         true
                         );
@@ -246,7 +246,7 @@ namespace vl {
                 addTensorCoupling(Lx);
                 addLagrangianTerm(
                         -Lx(I) * GetComplexConjugate(VLQ_L({c,i[0],a}))
-                            * UR({c,I,a}) * H(i[0]),
+                            * UR({I,c,a}) * H(i[0]),
                         true
                         );
             }
@@ -255,7 +255,7 @@ namespace vl {
                 addTensorCoupling(Ly);
                 addLagrangianTerm(
                         -Ly(I) * GetComplexConjugate(VLQ_L({c,i[0],a}))
-                            * DR({c,I,a}) * eps({i[0], i[1]})
+                            * DR({I,c,a}) * eps({i[0], i[1]})
                             * GetComplexConjugate(H(i[1])),
                         true
                         );
